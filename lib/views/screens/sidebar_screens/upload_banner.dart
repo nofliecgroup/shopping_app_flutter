@@ -62,6 +62,7 @@ class _UploadBannerState extends State<UploadBanner> {
       child: Column(
         children: [
           Container(
+            color: Color.fromRGBO(105, 159, 149, 0.996),
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(10.0),
             child: const Text(

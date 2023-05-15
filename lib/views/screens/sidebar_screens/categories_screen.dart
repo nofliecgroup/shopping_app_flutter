@@ -7,6 +7,7 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+        color: Color.fromRGBO(105, 159, 149, 0.996),
         alignment: Alignment.center,
         padding: const EdgeInsets.all(10),
         child: const Text(
