@@ -135,7 +135,7 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
         header: Container(
           height: 50,
           width: double.infinity,
-          color: const Color(0xff1428db),
+          color: const Color(0xFFC8C9CD),
           child: const Center(
             child: Text(
               'Multi Vendor Admin Dashboard',
@@ -148,10 +148,10 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
         footer: Container(
           height: 50,
           width: double.infinity,
-          color: const Color(0xff1428db),
+          color: const Color(0xFFD6D8E9),
           child: const Center(
             child: Text(
-              '@2023 - NOFLIE CONSULTING GROUP',
+              'NOFLIE CONSULTING GROUP',
               style: TextStyle(
                 color: Colors.white,
                 decorationColor: Colors.amber,
