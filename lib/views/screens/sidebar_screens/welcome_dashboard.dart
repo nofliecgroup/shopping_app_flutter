@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:ncg_shopping_app/views/screens/sidebar_screens/categories_screen.dart';
+import 'package:ncg_shopping_app/views/screens/sidebar_screens/customer_support.dart';
 import 'package:ncg_shopping_app/views/screens/sidebar_screens/dashboard_screen.dart';
 import 'package:ncg_shopping_app/views/screens/sidebar_screens/orders_screen.dart';
 import 'package:ncg_shopping_app/views/screens/sidebar_screens/products_screen.dart';
@@ -57,6 +58,12 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
           _selectedItem = UploadBanner();
         });
         break;
+      case 'Customers Support':
+        setState(() {
+          _selectedItem = CustomerSupportCenter();
+        });
+        break;
+
       default:
         setState(() {
           _selectedItem = DashboardScreen();
@@ -109,6 +116,11 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
             icon: CupertinoIcons.add,
             route: UploadBanner.routeName,
           ),
+          AdminMenuItem(
+            title: 'Customers Support',
+            icon: CupertinoIcons.person_2_alt,
+            route: CustomerSupportCenter.routeName,
+          ),
         ],
         selectedRoute: '/',
         onSelected: (item) => screenSelector(item.title),
@@ -150,8 +162,6 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
         ),
       ),
       body: _selectedItem,
-      
     );
-  
   }
 }
