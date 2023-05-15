@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "847718638877",
+    "project_id": "multi-vendor-app-9fba7",
+    "storage_bucket": "multi-vendor-app-9fba7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847718638877:android:fa70d97879c330292a6df4",
+        "android_client_info": {
+          "package_name": "com.nofliegroup.ncg_shopping_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847718638877-odclqas3vcqspdt74utiocsm93rjfans.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt4SXEoywiM9Naji3iA-BqfxPTu3Eoj0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847718638877-odclqas3vcqspdt74utiocsm93rjfans.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
