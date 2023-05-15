@@ -15,8 +15,8 @@ class CustomerSupportCenter extends StatelessWidget {
         alignment: Alignment.center,
         padding: const EdgeInsets.all(10),
         child: Center(
-          child: const Text(
-            'This is the Customer Support Center',
+          child: Text(
+            date.toString(),
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
