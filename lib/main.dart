@@ -53,6 +53,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: WelcomeDashBoard(),
+      //adding an initial route after completion of the login screen
+      initialRoute: '/',
     );
   }
 }
