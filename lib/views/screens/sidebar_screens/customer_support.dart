@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CustomerSupportCenter extends StatefulWidget {
   static const String routeName = '/CustomerSupportCenter';
@@ -38,7 +39,7 @@ class _CustomerSupportCenterState extends State<CustomerSupportCenter> {
 
     return SingleChildScrollView(
       child: Container(
-        color: Color.fromRGBO(105, 159, 149, 0.996),
+        color: Color.fromRGBO(13, 29, 207, 0.988),
         alignment: Alignment.center,
         padding: const EdgeInsets.all(10),
         child: Center(
@@ -47,6 +48,7 @@ class _CustomerSupportCenterState extends State<CustomerSupportCenter> {
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
         ),
