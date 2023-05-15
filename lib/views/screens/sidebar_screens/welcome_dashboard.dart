@@ -67,10 +67,10 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 221, 216, 216),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Vendor Dashboard Management'),
+        title: const Text('Vendor Dashboard'),
       ),
       sideBar: SideBar(
         items: const [
@@ -114,9 +114,9 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
         onSelected: (item) => screenSelector(item.title),
         width: 250,
         backgroundColor: Colors.tealAccent,
-        borderColor: Colors.white,
+        borderColor: Color.fromARGB(255, 215, 28, 28),
         textStyle: const TextStyle(color: Colors.black, fontSize: 20),
-        activeBackgroundColor: Colors.white,
+        activeBackgroundColor: Color.fromARGB(255, 218, 215, 215),
         activeIconColor: Colors.black,
         activeTextStyle: const TextStyle(color: Colors.blueGrey, fontSize: 20),
         iconColor: Colors.black,
