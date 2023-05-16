@@ -6,7 +6,7 @@ import 'package:ncg_shopping_app/views/screens/sidebar_screens/welcome_dashboard
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 Future<void> main() async {
-  /*  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   FirebaseOptions options;
 
@@ -16,7 +16,7 @@ Future<void> main() async {
       messagingSenderId: "847718638877",
       projectId: "multi-vendor-app-9fba7",
       databaseURL:
-      'https://ncg-shopping-app-default-rtdb.asia-southeast1.firebasedatabase.app',
+          'https://ncg-shopping-app-default-rtdb.asia-southeast1.firebasedatabase.app',
       storageBucket: "multi-vendor-app-9fba7.appspot.com",
       apiKey: "AIzaSyDHbWTdE5VflGocEguN1MHR6v4h_4nUD3c",
     );
@@ -26,14 +26,14 @@ Future<void> main() async {
       messagingSenderId: "847718638877",
       projectId: "multi-vendor-app-9fba7",
       databaseURL:
-      'https://ncg-shopping-app-default-rtdb.asia-southeast1.firebasedatabase.app',
+          'https://ncg-shopping-app-default-rtdb.asia-southeast1.firebasedatabase.app',
       storageBucket: "multi-vendor-app-9fba7.appspot.com",
       apiKey: "AIzaSyDHbWTdE5VflGocEguN1MHR6v4h_4nUD3c",
     );
   }
 
   await Firebase.initializeApp(options: options);
- */
+
   runApp(const MyApp());
 }
 
@@ -76,23 +76,25 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text('Multi Vendor Application'),
           backgroundColor: Colors.blue),
       body: SingleChildScrollView(),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-          backgroundColor: Colors.blue,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
-          backgroundColor: Colors.blue,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          label: 'Settings',
-          backgroundColor: Colors.blue,
-        ),
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+            backgroundColor: Colors.blue,
+          ),
+        ],
+      ),
     );
   }
 }

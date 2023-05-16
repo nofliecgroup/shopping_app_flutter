@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'dart:io';
-
 import 'package:logger/logger.dart';
 
 class UploadBanner extends StatefulWidget {
@@ -14,10 +12,10 @@ class UploadBanner extends StatefulWidget {
 }
 
 class _UploadBannerState extends State<UploadBanner> {
-  //final FirebaseStorage _storage = FirebaseStorage.instance;
-  //final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseStorage _storage = FirebaseStorage.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  dynamic _image;
   var logger = Logger();
-  File? _image;
   String? fileName = '';
 
   pickImage() async {
@@ -25,11 +23,7 @@ class _UploadBannerState extends State<UploadBanner> {
         .pickFiles(allowMultiple: false, type: FileType.image);
     if (result != null) {
       setState(() {
-        // _image = File(result.files.single.path);
-        _image = result.files.single.path != null
-            ? File(result.files.single.path!)
-            : null;
-
+        _image = result.files.first.bytes;
         fileName = result.files.first.name;
         print(fileName);
         logger.i(fileName);
@@ -37,25 +31,33 @@ class _UploadBannerState extends State<UploadBanner> {
     }
   }
 
-  /*  _uploadBannersToStorage(dynamic image) async {
+  Future<String> uploadBannersToStorage(dynamic image) async {
     Reference ref = _storage.ref().child('Banners').child(fileName!);
     UploadTask uploadTask = ref.putData(image);
+    await uploadTask;
+
     TaskSnapshot snapshot = await uploadTask;
     String downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;
-  } */
+  }
 
-/*   uploadToFirebaseStore() async {
-    if(_image != null) {
-     String imageUrl = await _uploadBannersToStorage(_image!).then((value) => print('Done'));
-     await  _firestore.collection('Banners').doc(fileName).set({
-       'imageUrl': imageUrl,
-       'fileName': fileName,
-     }).then((value) => print('Done'));
+Future<void> uploadBannersToFirestore() async {
+    if(_image !=null) {
+
+      String downloadUrl = await uploadBannersToStorage(_image);
+      await _firestore.collection('Banners').doc(fileName).set({
+        'url': downloadUrl,
+        'createdAt': Timestamp.now(),
+      });
+      setState(() {
+        _image = null;
+      });
 
     }
+
+
   }
- */
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -91,7 +93,7 @@ class _UploadBannerState extends State<UploadBanner> {
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: _image != null
-                          ? Image.file(
+                          ? Image.memory(
                               _image!,
                               fit: BoxFit.cover,
                             )
@@ -108,11 +110,12 @@ class _UploadBannerState extends State<UploadBanner> {
                       children: [Text(fileName!)],
                     ),
                     ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.amber.shade900,
-                        ),
-                        onPressed: pickImage,
-                        child: Text('Upload Image'))
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.amber.shade900,
+                      ),
+                      onPressed: pickImage,
+                      child: Text('Upload Image'),
+                    ),
                   ],
                 ),
               ),
@@ -124,8 +127,14 @@ class _UploadBannerState extends State<UploadBanner> {
                   backgroundColor: Colors.green.shade800,
                   elevation: 4.0,
                 ),
-                onPressed: () {
-                  //uploadToFirebaseStore();
+                onPressed: () async {
+                  if (_image != null) {
+                    String downloadUrl = await uploadBannersToStorage(_image);
+                    // Save the downloadUrl or perform other actions
+                    print('Download URL: $downloadUrl');
+                  } else {
+                    // Handle case when no image is selected
+                  }
                 },
                 child: Text('Save'),
               ),
