@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:ncg_shopping_app/views/screens/sidebar_screens/welcome_dashboard.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: WelcomeDashBoard(),
+      builder: EasyLoading.init(),
       //adding an initial route after completion of the login screen
       initialRoute: '/',
     );

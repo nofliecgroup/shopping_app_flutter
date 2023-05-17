@@ -30,6 +30,7 @@ dependencies:
   week_of_year: ^2.0.0
   google_fonts: ^4.0.4
   date_time_picker: ^2.1.0
+  flutter_easyloading: ^3.0.5
 
 
 dev_dependencies:

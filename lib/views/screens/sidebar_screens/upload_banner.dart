@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:logger/logger.dart';
 
 class UploadBanner extends StatefulWidget {
@@ -42,20 +43,26 @@ class _UploadBannerState extends State<UploadBanner> {
   }
 
 Future<void> uploadBannersToFirestore() async {
+    EasyLoading.show();
     if(_image !=null) {
-
       String downloadUrl = await uploadBannersToStorage(_image);
       await _firestore.collection('Banners').doc(fileName).set({
         'url': downloadUrl,
         'createdAt': Timestamp.now(),
+      }).whenComplete(() {
+        EasyLoading.dismiss();
+        EasyLoading.showSuccess('Uploaded Successfully');
       });
       setState(() {
         _image = null;
+        fileName = "";
       });
 
+      EasyLoading.dismiss();
+      EasyLoading.showSuccess('Uploaded Successfully');
+    } else {
+      EasyLoading.showError('Please select an image');
     }
-
-
   }
 
   @override
@@ -128,13 +135,14 @@ Future<void> uploadBannersToFirestore() async {
                   elevation: 4.0,
                 ),
                 onPressed: () async {
-                  if (_image != null) {
+                  uploadBannersToFirestore();
+                 /* if (_image != null) {
                     String downloadUrl = await uploadBannersToStorage(_image);
                     // Save the downloadUrl or perform other actions
                     print('Download URL: $downloadUrl');
                   } else {
                     // Handle case when no image is selected
-                  }
+                  }*/
                 },
                 child: Text('Save'),
               ),
