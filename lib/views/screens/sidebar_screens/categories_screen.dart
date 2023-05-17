@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CategoriesScreen extends StatelessWidget {
   static const String routeName = '/CategoryScreen';
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +40,16 @@ class CategoriesScreen extends StatelessWidget {
                         border: Border.all(color: Colors.grey.shade400),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                      child: Text('some text'),
+                      child: const Icon(
+                        Icons.add_a_photo,
+                        color: Colors.red,
+                        size: 50,
+                      ),
                     ),
-                    Row(
-                      children: [Text('some text')],
+                    SizedBox(
+                      height: 10,
                     ),
+
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.amber.shade900,
@@ -56,6 +63,16 @@ class CategoriesScreen extends StatelessWidget {
               SizedBox(
                 width: 10,
               ),
+
+              SizedBox(
+                width: 300,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Category Name',
+                  ),
+                ),
+              ),
+
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green.shade800,
