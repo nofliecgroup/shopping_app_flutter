@@ -36,7 +36,7 @@ class RegistrationScreen extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 65.0,
                       child: const Icon(
-                        Icons.person,
+                        CupertinoIcons.person,
                         size: 65.0,
                         color: Colors.white,
                       ),
