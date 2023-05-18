@@ -77,7 +77,7 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
       backgroundColor: Color.fromARGB(255, 221, 216, 216),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Vendor Dashboard'),
+        title: const Text('Admin Dashboard'),
       ),
       sideBar: SideBar(
         items: const [

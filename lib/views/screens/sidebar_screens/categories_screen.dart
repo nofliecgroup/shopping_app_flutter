@@ -44,9 +44,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     Reference ref = _storage.ref().child('CategoryImages').child(fileName!);
     UploadTask uploadTask = ref.putData(image);
     TaskSnapshot snapshot = await uploadTask;
-    String imageUrl = await snapshot.ref.getDownloadURL();
+    String downloadUrl = await snapshot.ref.getDownloadURL();
     await _firestore.collection('CategoryImages').doc(fileName).set({
-      'url': imageUrl,
+      'url': downloadUrl,
       'categoryName': categoryName,
       'createdAt': Timestamp.now(),
     }).whenComplete(() {
@@ -79,20 +79,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     return SingleChildScrollView(
       child: Form(
         key: _formKey,
-        child: SingleChildScrollView(
+        child: Flexible(
           child: Column(
             children: [
               Container(
                 color: Color.fromRGBO(105, 159, 149, 0.996),
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10.0),
-                child: Center(
-                  child: const Text(
-                    'Banners Images are uploaded here....',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 30,
-                    ),
+                child: const Text(
+                  'Banners Images are uploaded here....',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 36,
                   ),
                 ),
               ),
@@ -109,8 +107,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     child: Column(
                       children: [
                         Container(
-                          height: 180,
-                          width: 180,
+                          height: 160,
+                          width: 160,
                           decoration: BoxDecoration(
                             color: Colors.grey.shade500,
                             border: Border.all(color: Colors.grey.shade400),

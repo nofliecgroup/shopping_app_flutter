@@ -1,22 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CategoryImagesWidget extends StatefulWidget {
-  @override
-  State<CategoryImagesWidget> createState() => _CategoryImagesWidgetState();
-}
+class UploadBannerWidget extends StatelessWidget {
+  final Stream<QuerySnapshot> _uploadBannersStream =
+      FirebaseFirestore.instance.collection('Banners').snapshots();
 
-class _CategoryImagesWidgetState extends State<CategoryImagesWidget> {
-  final Stream<QuerySnapshot> _categoryStream =
-      FirebaseFirestore.instance.collection('CategoryImages').snapshots();
-
-  String? filename;
+  String filename = '';
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _categoryStream,
+      stream: _uploadBannersStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return Text('Something went wrong');
@@ -32,7 +26,7 @@ class _CategoryImagesWidgetState extends State<CategoryImagesWidget> {
         return SizedBox(
           height: 300,
           child: GridView.builder(
-            shrinkWrap: true,
+              shrinkWrap: true,
               itemCount: snapshot.data!.docs.length,
               //itemCount: snapshot.data!.size,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -42,7 +36,7 @@ class _CategoryImagesWidgetState extends State<CategoryImagesWidget> {
                 crossAxisSpacing: 3.0,
               ),
               itemBuilder: (BuildContext context, int index) {
-                final categoryData = snapshot.data!.docs[index];
+                final uploadBannerData = snapshot.data!.docs[index];
                 return Column(
                   children: [
                     Padding(
@@ -51,12 +45,12 @@ class _CategoryImagesWidgetState extends State<CategoryImagesWidget> {
                         height: 150,
                         width: 150,
                         child: Image.network(
-                          categoryData['url'],
+                          uploadBannerData['url'],
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    Text(categoryData['categoryName']),
+                    Text(uploadBannerData['fileName']),
                   ],
                 );
               }),

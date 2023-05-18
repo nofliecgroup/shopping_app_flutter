@@ -38,16 +38,19 @@ class ProductScreen extends StatelessWidget {
                         border: Border.all(color: Colors.grey.shade400),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
+                      child: Icon(
+                        CupertinoIcons.photo_fill_on_rectangle_fill,
+                        color: Colors.red,
+                        size: 50,
+                      ),
                     ),
                     SizedBox(
                       height: 10,
                     ),
-
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green.shade800,
                         elevation: 4.0,
-
                       ),
                       onPressed: () async {},
                       child: Text('Upload Image'),

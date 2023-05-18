@@ -10,11 +10,11 @@ class VendorScreen extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            color: Color.fromRGBO(105, 159, 149, 0.996),
+            color: Color.fromRGBO(24, 18, 18, 1.0),
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(10.0),
             child: const Text(
-              'Banners Images are uploaded here....',
+              'Vendor Screen....',
               style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 36,
