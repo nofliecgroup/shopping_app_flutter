@@ -34,6 +34,7 @@ Future<void> main() async {
   }
 
   await Firebase.initializeApp(options: options);
+  //await FlutterCors.ensureInitialized();
 
   runApp(const MyApp());
 }

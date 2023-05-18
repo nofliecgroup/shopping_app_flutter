@@ -10,6 +10,8 @@ import 'package:ncg_shopping_app/views/screens/sidebar_screens/upload_banner.dar
 import 'package:ncg_shopping_app/views/screens/sidebar_screens/vendor_screen.dart';
 import 'package:ncg_shopping_app/views/screens/sidebar_screens/withdrawal_screen.dart';
 
+import 'default_screen.dart';
+
 class WelcomeDashBoard extends StatefulWidget {
   const WelcomeDashBoard({Key? key}) : super(key: key);
 
@@ -19,7 +21,7 @@ class WelcomeDashBoard extends StatefulWidget {
 
 class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
   //Widget _selectedItem = DashboardScreen();
-  Widget _selectedItem = DashboardScreen();
+   Widget _selectedItem = DefaultScreen();
 
   screenSelector(item) {
     switch (item) {
@@ -66,7 +68,7 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
 
       default:
         setState(() {
-          _selectedItem = DashboardScreen();
+          _selectedItem = DefaultScreen();
         });
     }
   }
@@ -87,7 +89,7 @@ class _WelcomeDashBoardState extends State<WelcomeDashBoard> {
             icon: Icons.dashboard,
           ),
           AdminMenuItem(
-            title: 'Vendor',
+            title: 'Vendors',
             route: VendorScreen.routeName,
             icon: CupertinoIcons.person_3,
           ),

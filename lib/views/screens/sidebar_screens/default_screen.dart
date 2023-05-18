@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 
-class DashboardScreen extends StatelessWidget {
-  static const String routeName = '/DashboardScreen';
+class DefaultScreen extends StatelessWidget {
+  static const String routeName = '/DefaultScreen';
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: Color.fromRGBO(234, 226, 10, 1.0),
+        color: Color.fromRGBO(177, 12, 48, 1.0),
         alignment: Alignment.center,
         padding: const EdgeInsets.all(10),
         child: const Text(
-          'This is the Dashboard screen',
+          'You are on the default screen.',
           style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
