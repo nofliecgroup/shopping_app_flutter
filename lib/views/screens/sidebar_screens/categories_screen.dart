@@ -44,9 +44,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     Reference ref = _storage.ref().child('CategoryImages').child(fileName!);
     UploadTask uploadTask = ref.putData(image);
     TaskSnapshot snapshot = await uploadTask;
-    String downloadUrl = await snapshot.ref.getDownloadURL();
+    String imageUrl = await snapshot.ref.getDownloadURL();
     await _firestore.collection('CategoryImages').doc(fileName).set({
-      'url': downloadUrl,
+      'url': imageUrl,
       'categoryName': categoryName,
       'createdAt': Timestamp.now(),
     }).whenComplete(() {
@@ -86,11 +86,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 color: Color.fromRGBO(105, 159, 149, 0.996),
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10.0),
-                child: const Text(
-                  'Banners Images are uploaded here....',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 36,
+                child: Center(
+                  child: const Text(
+                    'Banners Images are uploaded here....',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 30,
+                    ),
                   ),
                 ),
               ),
@@ -107,8 +109,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     child: Column(
                       children: [
                         Container(
-                          height: 160,
-                          width: 160,
+                          height: 180,
+                          width: 180,
                           decoration: BoxDecoration(
                             color: Colors.grey.shade500,
                             border: Border.all(color: Colors.grey.shade400),

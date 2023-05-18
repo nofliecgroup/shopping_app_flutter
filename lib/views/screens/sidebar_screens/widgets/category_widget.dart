@@ -32,13 +32,14 @@ class _CategoryImagesWidgetState extends State<CategoryImagesWidget> {
         return SizedBox(
           height: 300,
           child: GridView.builder(
+            shrinkWrap: true,
               //itemCount: snapshot.data!.docs.length,
               itemCount: snapshot.data!.size,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 6,
-                mainAxisSpacing: 6.0,
+                mainAxisSpacing: 3.0,
                 childAspectRatio: 1.0,
-                crossAxisSpacing: 6.0,
+                crossAxisSpacing: 3.0,
               ),
               itemBuilder: (BuildContext context, int index) {
                 final categoryData = snapshot.data!.docs[index];
