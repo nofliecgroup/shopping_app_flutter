@@ -37,63 +37,62 @@ class OrderScreen extends StatelessWidget {
   }
 
   @override
-Widget build(BuildContext context) {
-  return Form(
-    key: _formKey,
-    child: Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Enter a category name to search the order';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    labelText: 'search for orders',
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Enter a category name to search the order';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      labelText: 'search for orders',
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              Expanded(
-                flex: 1,
-                child: ElevatedButton(
-                  onPressed: () {
-                    validateSearch();
-                  },
-                  child: const Text('Search'),
+                SizedBox(
+                  width: 10.0,
                 ),
-              ),
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      validateSearch();
+                    },
+                    child: const Text('Search'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            children: [
+              _rowHeader('Product', 1),
+              _rowHeader('FullName', 1),
+              _rowHeader('Email', 1),
+              _rowHeader('Phone', 1),
+              _rowHeader('Quantity', 1),
+              _rowHeader('Price', 1),
+              _rowHeader('Total', 1),
+              _rowHeader('Country', 1),
+              _rowHeader('City', 1),
+              _rowHeader('Address', 1),
+              _rowHeader('Status', 1),
+              _rowHeader('Action', 1),
             ],
           ),
-        ),
-        Row(
-          children: [
-            _rowHeader('Product', 1),
-            _rowHeader('FullName', 1),
-            _rowHeader('Email', 1),
-            _rowHeader('Phone', 1),
-            _rowHeader('Quantity', 1),
-            _rowHeader('Price', 1),
-            _rowHeader('Total', 1),
-            _rowHeader('Country', 1),
-            _rowHeader('City', 1),
-            _rowHeader('Address', 1),
-            _rowHeader('Status', 1),
-            _rowHeader('Action', 1),
-          ],
-        ),
-      ],
-    ),
-  );
-}
-
+        ],
+      ),
+    );
+  }
 }
