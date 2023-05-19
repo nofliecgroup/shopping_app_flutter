@@ -47,15 +47,17 @@ class WithdrawaScreen extends StatelessWidget {
           ),
           Row(
             children: [
-              _rowHeader('Vendor Profile', 1),
-              _rowHeader('Vendor Name', 1),
-              _rowHeader('Vendor Address', 3),
-              _rowHeader('Vendor Phone', 1),
-              _rowHeader('Vendor Email', 2),
-              _rowHeader('Vendor Status', 1),
-              _rowHeader('Vendor Action', 1),
+               _rowHeader('Date', 1),
+              _rowHeader( 'Name', 1),
+              _rowHeader('Email', 1),
+              _rowHeader('Phone', 1),
+              _rowHeader('Amount', 1),
+              _rowHeader('Bank Name', 1),
+              _rowHeader('Account Number', 1),
+              _rowHeader('Status', 1),
+              _rowHeader('Action', 1),
             ],
-          )
+          ),
         ],
       ),
     );
